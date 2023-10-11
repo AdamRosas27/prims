@@ -9,6 +9,11 @@ class Graph:
 # def add_vertex(self, vertex):
 # pass
 
+
+def add_vertex(self, vertex):
+    if vertex not in self.adj_list:
+        self.adj_list[vertex] = []
+
 # def add_edge(self, vertex1, vertex2):
 # pass
 
