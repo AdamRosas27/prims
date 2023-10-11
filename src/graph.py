@@ -1,7 +1,10 @@
 # class Graph:
+class Graph:
 
-# def __init__(self, verticies):
-# pass
+    # def __init__(self):
+    # pass
+    def __init__(self):
+        self.adj_list = {}
 
 # def add_vertex(self, vertex):
 # pass
