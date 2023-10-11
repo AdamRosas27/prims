@@ -9,13 +9,14 @@ class Graph:
 # def add_vertex(self, vertex):
 # pass
 
+    # Implement error handling, if user inputs strings as vertex, throw error
     def add_vertex(self, vertex):
         if vertex not in self.adj_list:
             self.adj_list[vertex] = []
 
 # def add_edge(self, vertex1, vertex2, weight):
 # pass
-
+    # Implement error handling, if user inputs strings as vertex1, vertex2, and weight throw error
     def add_edge(self, vertex1, vertex2, weight):
         if vertex1 in self.adj_list:
             self.adj_list[vertex1].append((vertex2, weight))
@@ -25,6 +26,7 @@ class Graph:
 # get_edge_weight(self, vertex1, vertex2):
 # pass
 
+    # Implement error handling, if user inputs strings as vertex1, vertex2, throw error
     def get_edge_weight(self, vertex1, vertex2):
         # Add edge case if vertex1/vertex2 dont exist
         if vertex1 in self.adj_list:
