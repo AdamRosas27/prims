@@ -14,8 +14,15 @@ def add_vertex(self, vertex):
     if vertex not in self.adj_list:
         self.adj_list[vertex] = []
 
-# def add_edge(self, vertex1, vertex2):
+# def add_edge(self, vertex1, vertex2, weight):
 # pass
+
+
+def add_edge(self, vertex1, vertex2, weight):
+    if vertex1 in self.adj_list:
+        self.adj_list[vertex1].append((vertex2, weight))
+    else:
+        self.adj_list[vertex1] = [(vertex2, weight)]
 
 # get_edge_weight(self, vertex1, vertex2):
 # pass
