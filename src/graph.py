@@ -25,6 +25,14 @@ class Graph:
 # get_edge_weight(self, vertex1, vertex2):
 # pass
 
+    def get_edge_weight(self, vertex1, vertex2):
+        # Add edge case if vertex1/vertex2 dont exist
+        if vertex1 in self.adj_list:
+            for neighbor, weight in self.adj_list[vertex1]:
+                if neighbor == vertex2:
+                    return weight
+        return None
+
 # prims():
 # pass
 
