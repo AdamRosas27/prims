@@ -58,8 +58,17 @@ class Graph:
 
 # get_all_edges_and_total_weight(self):
 
+    def all_edges(self):
+        print(f"\nVertex --> Corresponding Edge(s)")
+        for vertex in range(1, len(self.adj_list) + 1):
+            edges = self.adj_list.get(vertex, [])
+            edge_str = ", ".join(
+                [str(edge[0]) if edge[0] is not None else "None" for edge in edges])
+            print(f"Vertex: {vertex} --> Edges: {edge_str}")
 
-    def get_all_edges_and_weights(self):
+    def total_weight_no_mst(self):
+
+    def get_all_edges_and_total_weight(self):
         print(f"\nVertex --> Corresponding Edge(s)")
         for vertex in range(1, len(self.adj_list) + 1):
             edges = self.adj_list.get(vertex, [])
