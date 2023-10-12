@@ -38,7 +38,6 @@ class Main:
         g.add_edge(7, 2, 8)
         g.add_edge(7, 5, 7)
         g.get_edge_weight(0, 1)
-        g.get_all_edges_and_weights()
         mst = g.prims(1)
         print("\nMinimum Spanning Tree (MST):")
         for u, v, weight in mst:
@@ -47,7 +46,8 @@ class Main:
         total_mst_weight = 0
         for _, _, weight in mst:
             total_mst_weight += weight
-        print(f"\nTotal MST Weight: {total_mst_weight}")
+        g.get_all_edges_and_total_weight()
+        print(f"Total Minimum Spanning Tree Weight: {total_mst_weight}")
 
 
 # if __name__ == '__main__':

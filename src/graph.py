@@ -55,7 +55,6 @@ class Graph:
 
         return mst_edges
 
-
 # get_all_edges_and_total_weight(self):
 
     def all_edges(self):
@@ -67,11 +66,13 @@ class Graph:
             print(f"Vertex: {vertex} --> Edges: {edge_str}")
 
     def total_weight_no_mst(self):
+        total_weight = 0
+        for vertex, edges in self.adj_list.items():
+            for _, weight in edges:
+                total_weight += weight
+        print(
+            f"\nTotal Graph Weight, No Minimum Spanning Tree: {total_weight}")
 
     def get_all_edges_and_total_weight(self):
-        print(f"\nVertex --> Corresponding Edge(s)")
-        for vertex in range(1, len(self.adj_list) + 1):
-            edges = self.adj_list.get(vertex, [])
-            edge_str = ", ".join(
-                [str(edge[0]) if edge[0] is not None else "None" for edge in edges])
-            print(f"Vertex: {vertex} --> Edges: {edge_str}")
+        self.all_edges()
+        self.total_weight_no_mst()
