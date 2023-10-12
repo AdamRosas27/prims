@@ -1,4 +1,8 @@
+import heapq
+
 # class Graph:
+
+
 class Graph:
 
     # def __init__(self):
@@ -9,7 +13,7 @@ class Graph:
 # def add_vertex(self, vertex):
 # pass
 
-    # Implement error handling, if user inputs strings as vertex, throw error
+    # Implement error handling, if user inputs int as vertex, throw error
     def add_vertex(self, vertex):
         if vertex not in self.adj_list:
             self.adj_list[vertex] = []
@@ -37,13 +41,36 @@ class Graph:
 
 # prims():
 # pass
+    def prims(self, starting_vertex):
+        visited = set()
+        mst_edges = []
+        min_heap = []
+
+        def add_edges(vertex):
+            visited.add(vertex)
+            for neighbor, weight in self.adj_list[vertex]:
+                if neighbor not in visited:
+                    heapq.heappush(min_heap, (weight, vertex, neighbor))
+
+        add_edges(starting_vertex)
+
+        while min_heap:
+            weight, u, v = heapq.heappop(min_heap)
+            if v not in visited:
+                mst_edges.append((u, v, weight))
+                add_edges(v)
+
+        return mst_edges
+
 
 # get_all_edges_and_total_weight(self):
 # pass
 
+
     def get_all_edges_and_weights(self):
-        for vertex in range(len(self.adj_list)):
+        print(f"\nVertex --> Corresponding Edge(s)")
+        for vertex in range(1, len(self.adj_list) + 1):
             edges = self.adj_list.get(vertex, [])
-            edge_str = ", ".join([str(edge[0]) if edge[0]
-                                 is not None else "None" for edge in edges])
+            edge_str = ", ".join(
+                [str(edge[0]) if edge[0] is not None else "None" for edge in edges])
             print(f"Vertex: {vertex} --> Edges: {edge_str}")
