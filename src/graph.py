@@ -32,7 +32,7 @@ class Graph:
         if vertex1 in self.adj_list:
             for neighbor, weight in self.adj_list[vertex1]:
                 if neighbor == vertex2:
-                    return weight
+                    print(weight)
         return None
 
 # prims():
@@ -40,3 +40,10 @@ class Graph:
 
 # get_all_edges_and_total_weight(self):
 # pass
+
+    def get_all_edges_and_weights(self):
+        for vertex in range(len(self.adj_list)):
+            edges = self.adj_list.get(vertex, [])
+            edge_str = ", ".join([str(edge[0]) if edge[0]
+                                 is not None else "None" for edge in edges])
+            print(f"Vertex: {vertex} --> Edges: {edge_str}")
